@@ -5,19 +5,19 @@ class Account:
 
     def deposit(self, amount):
 
-        if amount <= 0:
+        if amount <= 0:  
             return False
         else:
-            self.__account_balance += amount
+            self.__account_balance += amount  
             return True
 
     def withdraw(self, amount):
 
-        if amount <= 0:
-            return False
-        else:
+        if amount > 0 and amount <= self.__account_balance:
             self.__account_balance -= amount
             return True
+        elif amount <= 0 or self.__account_balance < amount:
+            return False
 
     def get_balance(self):
 
