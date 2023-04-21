@@ -1,6 +1,7 @@
 from account import *
 from pytest import *
 
+
 class Test:
     def setup(self):
         self.a1 = Account('John')
