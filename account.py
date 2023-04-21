@@ -11,24 +11,25 @@ class Account:
         """
         Method used to increase the account balance by a specified amount.
         :param amount: The amount to be deposited
-        :return: Returns a boolean value
+        :return: Returns True if amount is greater than 0, otherwise returns False
         """
-        if amount <= 0:  # If amount is less than 0 then it cannot be deposited
+        if amount <= 0:
             return False
         else:
-            self.__account_balance += amount  # Readjusts the value of account_balance if function is valid
+            self.__account_balance += amount
             return True
 
     def withdraw(self, amount: float) -> bool:
         """
         Method used to withdraw cash from the account
         :param amount: The amount to be withdrawn
-        :return: Returns a boolean value
+        :return: Returns True if amount is greater than 0 and also less than the account balance,
+        otherwise it will return False
         """
-        if 0 <= amount and amount < self.__account_balance:
-            self.__account_balance -= amount  # Readjusts the value of account_balance if function is valid
+        if amount > 0 and amount <= self.__account_balance:
+            self.__account_balance -= amount
             return True
-        elif amount < 0 or self.__account_balance < amount:
+        elif amount <= 0 or self.__account_balance < amount:
             return False
 
     def get_balance(self) -> float:
